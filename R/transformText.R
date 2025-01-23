@@ -30,9 +30,6 @@ transformText <- function(textData, returnFullData=F) {
   Text <- ID <- ID <- cleanTargetText <- NULL
   textData$ID <- as.factor(textData$ID)
 
-  print(paste("WORDS IN OMS:", nrow(omissionsDyads23)))
-  print(paste("WORDS IN LEX LOOKUP:", nrow(Lex2EmoLookup22)))
-
   cleanme <- function(x){ # clean text
     x <- tolower(x)
     x <- gsub("\"", " ", x)
