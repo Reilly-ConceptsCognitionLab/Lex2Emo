@@ -26,3 +26,5 @@ Imports:
 Depends: 
     R (>= 3.5)
 LazyData: true
+URL: https://github.com/Ben-Sacks/Lex2Emo
+BugReports: https://github.com/Ben-Sacks/Lex2Emo/issues
