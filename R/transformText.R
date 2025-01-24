@@ -40,7 +40,7 @@ transformText <- function(textData, returnFullData=F) {
     x <- gsub("[^a-zA-Z]", " ", x) #omit non-alphabetic characters
     x <- tm::stripWhitespace(x)
     x <- stringr::str_squish(x)
-    x <- tm::removeWords(x, omissionsDyads23$word)
+    x <- tm::removeWords(x, ReillyLab_Stopwords_25$word)
     x <- textstem::lemmatize_strings(x) #lemmatize
   }
 
