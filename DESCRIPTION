@@ -2,12 +2,8 @@ Package: Lex2Emo
 Title: Transform Text into Ratings on 22 Emotional Dimensions
 Version: 0.0.0.9000
 Authors@R: c(
-    person(given = "Ben", family = "Sacks",
-    "ben.sacks@temple.edu",
-    role = "aut"),
-    person(given = "Jamie", family = "Reilly",
-    email = "jamie_reilly@temple.edu",
-    role = c("aut", "cre"))
+    person("Ben", "Sacks", email = "ben.sacks@temple.edu", role = "aut"),
+    person("Jamie", "Reilly", email = "jamie_reilly@temple.edu", role = c("aut", "cre"))
     )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
@@ -26,5 +22,5 @@ Imports:
 Depends: 
     R (>= 3.5)
 LazyData: true
-URL: https://github.com/Ben-Sacks/Lex2Emo
-BugReports: https://github.com/Ben-Sacks/Lex2Emo/issues
+URL: https://github.com/Reilly-ConceptsCognitionLab/Lex2Emo
+BugReports: https://github.com/Reilly-ConceptsCognitionLab/Lex2Emo/issues
