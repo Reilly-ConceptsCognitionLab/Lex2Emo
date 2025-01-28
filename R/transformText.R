@@ -29,20 +29,23 @@ transformText <- function(textData, returnFullData=F) {
   # to stop R CMD notes - bind variables to function locally (rec here: https://www.r-bloggers.com/2019/08/no-visible-binding-for-global-variable/)
   Text <- ID <- ID <- cleanTargetText <- NULL
   textData$ID <- as.factor(textData$ID)
-
+  # internal function for cleaning text
   cleanme <- function(x){ # clean text
     x <- tolower(x)
     x <- gsub("\"", " ", x)
     x <- gsub("\n", " ", x)
     x <- gsub("`", "'", x)  # replaces tick marks with apostrophe for contractions
     x <- textclean::replace_contraction(x) #replace contractions
-    x <- gsub("-", " ", x)
     x <- gsub("[^a-zA-Z]", " ", x) #omit non-alphabetic characters
-    x <- tm::stripWhitespace(x)
-    x <- stringr::str_squish(x)
+    x <- gsub("-", " ", x)
+    x <- gsub("\\s+s\\s+", " ", x) #omit s when in isolation
+    x <- gsub("\\s+be\\s+", " ", x) #omit be when in isolation surrounded by spaces
     x <- tm::removeWords(x, ReillyLab_Stopwords_25$word)
     x <- textstem::lemmatize_strings(x) #lemmatize
+    x <- tm::stripWhitespace(x)
+    x <- stringr::str_squish(x)
   }
+
 
   cleanData <- textData %>%
     dplyr::mutate(cleanTargetText = cleanme(Text)) %>%
